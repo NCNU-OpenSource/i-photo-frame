@@ -20,7 +20,107 @@
 - HTML
 - Nginx
 ## 憑證準備
+### How to get OpenAI API key
+1. 到 [OpenAI 官網](https://openai.com/)
+2. 選擇 Products > API > API Login
+
+![image](https://hackmd.io/_uploads/SJtxLMlUyg.png)
+
+3. 登入後選擇 Dashboard
+
+![image](https://hackmd.io/_uploads/HkdO8zgIkg.png)
+
+4. 選擇 API Keys
+
+![image](https://hackmd.io/_uploads/B1L0LMe8yl.png)
+
+5. 點選 Create new secret key
+
+![image](https://hackmd.io/_uploads/rJmlDzeLye.png)
+
+6. 建立完後貼到 [`max.py` 的 15 行](https://github.com/zxcvcindy/Raspberry-Pi-Calendar/blob/main/max.py#L15) 並取消註解
+
+### How to get Google API credentials
+
+1. 到 [Google Cloud Console](https://console.cloud.google.com/welcome)
+2. 選擇 API 和服務
+
+![image](https://hackmd.io/_uploads/B1ltwMlIyx.png)
+
+3. 點選啟用 API 和服務
+
+![image](https://hackmd.io/_uploads/SkgjDfgIkx.png)
+
+4. 找到 Google Drive 跟 Google Calendar 按啟用
+
+![image](https://hackmd.io/_uploads/rJ80vGxIye.png)
+
+5. 回到 API 和服務選擇憑證
+
+![image](https://hackmd.io/_uploads/S1qguMg8Jg.png)
+
+6. 選擇建立憑證 > OAuth 用戶端 ID
+
+![image](https://hackmd.io/_uploads/S1O7_Me8ke.png)
+
+![image](https://hackmd.io/_uploads/B1NrdGeUyx.png)
+
+7. 建立完後就能下載 `credentials.json` 放到專案資料夾底下就可以使用了
 ## 執行過程
+### 下載雲端照片
+1. 切換進專案資料夾
+
+  `cd Raspberry-Pi-Calendar`
+
+2. 啟動 python 專案的虛擬環境
+
+  `source venv/bin/activate`
+
+3. 執行get_file2.py下在圖片至指定路徑
+   (/var/www/html/ , 與index.html放在同一層)
+
+  `sudo ../../venv/bin/python get_file2.py`
+
+### 開啟照片輪轉
+1. 啟動Nginx
+
+   `sudo systemctl start nginx`
+
+2. 查看樹梅派ip
+
+   `ip addr`
+
+3. 在瀏覽器搜尋
+
+   `http://[ip]/
+
+### 執行語音輸入
+1. 切換進專案資料夾
+
+   `cd Raspberry-Pi-Calendar`
+
+2. 啟動 `tmux` 來使 `audio.py` 以及 `max.py` 能夠以背景執行
+
+  `tmux`
+
+3. 啟動 python 專案的虛擬環境
+
+  `source venv/bin/activate`
+
+4. 啟動 `max.py`
+
+  `sudo venv/bin/python max.py`
+
+5. `ctrl + b` 後按 `c` 在 `tmux` 新增一個 tab
+
+6. 啟動 python 專案的虛擬環境
+
+  `source venv/bin/activate`
+
+7. 啟動 `audio.py`
+
+  `python audio.py`
+
 ## 心得回饋及遇到的困難
 ## 工作分配
 - 111213028 張嘉心:圖片輪轉功能、PPT總整理
