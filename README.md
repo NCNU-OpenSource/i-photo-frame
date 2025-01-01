@@ -70,16 +70,16 @@
 ### 下載雲端照片
 1. 切換進專案資料夾
 
-  `cd Raspberry-Pi-Calendar`
+    `cd Raspberry-Pi-Calendar`
 
 2. 啟動 python 專案的虛擬環境
 
-  `source venv/bin/activate`
+    `source venv/bin/activate`
 
 3. 執行get_file2.py下在圖片至指定路徑
    (/var/www/html/ , 與index.html放在同一層)
 
-  `sudo ../../venv/bin/python get_file2.py`
+    `sudo ../../venv/bin/python get_file2.py`
 
 ### 開啟照片輪轉
 1. 啟動Nginx
@@ -97,29 +97,29 @@
 ### 執行語音輸入
 1. 切換進專案資料夾
 
-   `cd Raspberry-Pi-Calendar`
+     `cd Raspberry-Pi-Calendar`
 
 2. 啟動 `tmux` 來使 `audio.py` 以及 `max.py` 能夠以背景執行
 
-  `tmux`
+    `tmux`
 
 3. 啟動 python 專案的虛擬環境
 
-  `source venv/bin/activate`
+    `source venv/bin/activate`
 
 4. 啟動 `max.py`
 
-  `sudo venv/bin/python max.py`
+    `sudo venv/bin/python max.py`
 
 5. `ctrl + b` 後按 `c` 在 `tmux` 新增一個 tab
 
 6. 啟動 python 專案的虛擬環境
 
-  `source venv/bin/activate`
+    `source venv/bin/activate`
 
 7. 啟動 `audio.py`
 
-  `python audio.py`
+    `python audio.py`
 
 ## 心得回饋及遇到的困難
 1. raspberry pi環境：一開始在設定網路就把樹梅派搞壞，重裝一次，在環境上也花了不少時間。
